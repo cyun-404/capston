@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+    <title>궁금리 CHATBOT</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-style.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+
+  </head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+      <!-- Main -->
+        <div id="main">
+          <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+              <div class="logo">
+                <a href="index.html">궁금리</a>
+              </div>
+            </header>
+
+            <!-- Page Heading -->
+            <div class="page-heading">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h1>CHATBOT Page</h1>
+                    <p><strong> 궁금리 챗봇이란? </strong> 궁금리 챗봇은 2004년부터 2021년의 금리, 의사록, 채권분석보고서, 뉴스 등의 자료를 데이터 마이닝 기법을 통해 ~~ 한뒤 단어의 성격을 긍정(인상)과 부정(인하)로 분류한 뒤 ~~ 의사결정 트리를 통해 취합한 데이터를 기반으로 챗봇을 제작하였습니다. *부경대 컴퓨터 공학과 2022 캡스톤 디자인 프로젝트 입니다.</p>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Simple Post -->
+            <section class="simple-post">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <img src="assets/images/simple-post.jpg" alt="">
+                    <div class="down-content">
+                      <p> 금리와 경제 정보를 쉽게 얻어보세요. 어려운 용어의 사용 없이 설명을 할 줄 아는 챗봇 입니다.</p>
+                    </div>
+                  </div>
+                </div>
+                
+               
+                
+              </div>
+            </section>
+
+            <h1 align="center">Chatbot</h1>
+      <p id="chatLog">- - C H A T - -<br></p>
+        <input id="userBox" type="text" onkeydown="if (event.keyCode == 13) {talk()}">
+      <button onClick='clearChat()'>Clear Chat</button>
+      <script type="text/javascript">
+        know = {
+                "hello" : "hi",
+                "hi" : "hello",
+                "hello :3" : "naw hellooo :3",
+                "hallo" : "hallo",
+                "ur mom gey" : "no u",
+                "how are you?" : "good",
+                "ok" : ":)",
+                "whats your name" : "my name is adam",
+                "who are you" : "im a chatbot",
+                "are u real" : "yes lol",
+                "금리인하의 여파 알려줘" : "가계 소비와 기업 투자 촉진, 원화환율 상승으로 수출 증대, 물가상승 압력 증대, 부동산가격 급등, 가계부채 증가 우려 등의 여파가 발생 합니다. 금리가 인하되면 대출 금리가 하락되어 기업이나 가계는 더 싸게 돈을 빌릴 수 있게 되어 투자나 소비가 증가 하는 등 경제 전반에 활력을 줄 수 있습니다. 하지만 금리가 인하하면 가계 부채 문제를 심화 시킨 수 있고, 물가가 상승합니다. 그 정도가 지나치면 인플레이션이 발생할 수 있습니다.",
+                "금리인하 여파" : "가계 소비와 기업 투자 촉진, 원화환율 상승으로 수출 증대, 물가상승 압력 증대, 부동산가격 급등, 가계부채 증가 우려의 효과가 발생합니다.",
+                "금리 인하 여파" : "가계 소비와 기업 투자 촉진, 원화환율 상승으로 수출 증대, 물가상승 압력 증대, 부동산가격 급등, 가계부채 증가 우려의 효과가 발생합니다.",
+
+                "금리인상 여파 알려줘" : "수입품 가격 하락으로 수입 증가, 물가는 안정돼 가계소비, 기업투자 위축, 원화가치 상승으로 수출 감소의 효과가 발생합니다. 금리가 인상되면 예금 및 대출 금리가 상승하며 기업이나 가계는 저축을 더 하고자 합니다. 그 결과 기업의 투자와 가계의 소비가 줄어들며 물가는 하락합니다. 높아진 금리로 해외 자본이 우리나라로 유입되며 원화 가치가 상승하고 환율이 하락합니다. 수출품 가격이 상승하고 수입품 가격이 하락해 수출이 감소하고 수입은 증가하는 결과를 가지고 옵니다. 하지만 금리인상은 경제 활동을 위축시키는 효과가 있습니다.",
+                "금리인상 여파" : "수입품 가격 하락으로 수입 증가, 물가는 안정돼 가계소비, 기업투자 위축, 원화가치 상승으로 수출 감소의 효과가 발생합니다.",
+                "금리 인상 여파" : "수입품 가격 하락으로 수입 증가, 물가는 안정돼 가계소비, 기업투자 위축, 원화가치 상승으로 수출 감소의 효과가 발생합니다.",
+
+                "최신 경제 이슈 알려줘" : "8월 금통위가 25bp 금리인상을 단행 하였습니다. 금년 이후 미국의 급격한 기준금리인상과는 다르게 한국에서는 조금 천천히 통화정책을 가져가고 있습니다. 이창용 총재는 향후 금리인상 경로는 25bp 의 속도로 진행하겠다는 언급을 한 만큼 경제에서의 변동성을 진정시킬 것으로 예상됩니다. 가계부채에 대하여 민감한 반응을 보였던 지난해 당시보다 부채 규모가 줄어든 상황이고, 민간이 적용받는 대출금리의 빠른 상승에 따른 이자비용 부담도 상당히 크게 형성된 만큼 경제주체들의 구매력 유지 차원에서도 긍정적 평가를 할 수 있습니다. 한미간 금리차는 확대되었지만 원달러환율 수준은 오히려 진정되는 모습도 보여집니다. 통화가치는 경제환경을 따라가는 만큼 금번의 금리인상이 시장에서는 긍정적으로 받아들여지는 것으로 생각됩니다.",
+                "최신 경제 이슈" : "연초 이후 미국 주식 시장이 약세로 돌아서면서, 글로벌 ETF 시장의 주식 ETF로의 자금 유입 규모는 감소 추세입니다. 우리나라에서도 금융시장의 변동성이 커지고 금리가 높아지면서, 채권자산투자에 대한 관심 증가하였습니다. 채권 가격이 하락한 현 상황은 채권 투자에 유리하게 작용할 것 으로 보입니다.",
+                "투자 방법 추천해줘" : "좋은 투자 방법은 자신만의 기준이 있으면 가장 좋습니다. 하지만 제가 추천을 드려 보자면, 우선 금통위가 25일 기준금리 2.50%로 25bp 인상하며 주요 은행 예·적금 상품 금리 인상으로 예·적금 이자율 3%대 근접했습니다. 적금이나 예금 상품을 알아보시는 것 도 좋을 것 같습니다. 주식투자의 경우 코스피 지수가 1주일 기준 30.8 하락하며 상품에 대한 충분한 사전 조사가 필요할 것 같습니다. ",
+                "투자방법 추천해줘" : "좋은 투자 방법은 자신만의 기준이 있으면 가장 좋습니다. 하지만 제가 추천을 드려 보자면, 우선 금통위가 25일 기준금리 2.50%로 25bp 인상하며 주요 은행 예·적금 상품 금리 인상으로 예·적금 이자율 3%대 근접했습니다. 적금이나 예금 상품을 알아보시는 것 도 좋을 것 같습니다. 주식투자의 경우 코스피 지수가 1주일 기준 30.8 하락하며 상품에 대한 충분한 사전 조사가 필요할 것 같습니다. ",
+
+                "환율과 수출의 상관관계 알려줘" : " 원-달러 환율이 하락하면 수출기업의 수입은 그만큼 줄어들게 됩니다. 외국에서 달러로 받는 돈은 같지만 원화 가치가 상승했기 때문에 국내에서 원화로 환전할 때 수입은 그만큼 줄어들게 됩니다. 또한 환율이 하락하면 수출제품 가격이 상승하여 수출이 줄어들게 됩니다. 그러나 환율이 수출에 미치는 영향이 과거보다 작아졌다는 분석도 존재합니다. ",
+            };
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+            async function talk() {
+                var user = document.getElementById("userBox").value;
+                document.getElementById("userBox").value = "";
+                document.getElementById("chatLog").innerHTML += "User: "+user+"<br>";
+                if (user in know) {
+                    await sleep(500)
+                    document.getElementById("chatLog").innerHTML += "Bot: "+know[user]+"<br>";
+                } else {
+                    await sleep(370)
+                    document.getElementById("chatLog").innerHTML += "Bot: 죄송해요 이해하지 못했어요 다시 말해주세요...<br>";
+                }
+            }
+function clearChat() {
+    document.getElementById("chatLog").value = "";
+    document.getElementById("chatLog").value = "- - C H A T - -<br>";
+}
+      </script>
+	</head>
+	<body>
+
+
+            
+            <section class="simple-post">
+              <div class="container-fluid">
+
+               <div class="row">
+                  <div class="col-md-6">
+
+                  </div>
+                </div>
+
+              </div>
+              </section>
+
+              <section class="simple-post">
+              <div class="container-fluid">
+              
+               <div class="row">
+                  <div class="col-lg-4">
+						<h2>First Step</h2>
+                      <p>금리, 의사록, 채권분석보고서, 뉴스, 경제 분석 보고서를 크롤링하여 정보를 수집하였습니다. 해당 정보를 분석하기 </p>
+                      <br>
+
+                  </div>
+                  <div class="col-lg-4">
+						<h2>Second Column</h2>
+                      <p>Donec et massa at dolor condimentum ornare nec non lorem. Maecenas non egestas metus, sed ultricies lectus. Aliquam sit amet gravida tellus. Phasellus id erat nec mi ullamcorper viverra.</p>
+                      <br>
+
+                  </div>
+                  <div class="col-lg-4">
+						<h2>Third Column</h2>
+                      <p>Quisque sodales vestibulum arcu porttitor finibus. Phasellus dictum nisl id augue ornare, vel interdum nibh mollis. Aliquam sit amet gravida tellus.</p>
+
+                  </div>
+                </div>
+                
+              </div>
+              </section>
+
+            <!-- Contact Form -->
+            <section class="contact-form">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-6">
+                    <form id="contact" action="" method="post">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <fieldset>
+                            <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
+                          </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                          <fieldset>
+                            <input name="email" type="text" class="form-control" id="email" placeholder="Your email..." required="">
+                          </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                          <fieldset>
+                            <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
+                          </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                          <fieldset>
+                            <button type="submit" id="form-submit" class="button">Send Message</button>
+                          </fieldset>
+                        </div>
+                      </div>
+                    </form> 
+                  </div>
+
+                </div>
+              </div>
+            </section>
+
+          </div>
+        </div>
+
+      <!-- Sidebar -->
+        <div id="sidebar">
+
+          <div class="inner">
+
+            <!-- Search Box -->
+            <section id="search" class="alt">
+              <form method="get" action="#">
+                <input type="text" name="search" id="search" placeholder="Search..." />
+              </form>
+            </section>
+              
+            <!-- Menu -->
+            <nav id="menu">
+              <ul>
+                <li><a href="index.html">궁금리 Home</a></li>
+                <li><a href="simple_page.html">챗봇 페이지</a></li>
+                <li><a href="shortcodes.html">기사 페이지</a></li>
+                <li>
+                  <span class="opener">금리 통계표</span>
+                  <ul>
+                    <li><a href="geumri1(기준금리).html">기준금리</a></li>
+                    <li><a href="geumri2(국고채).html">국고채</a></li>
+                    <li><a href="geumri3(주택담보대출).html">주택담보대출</a></li>
+                    <li><a href="geumri4(대출금리).html">대출금리</a></li>
+                    <li><a href="geumri5(예금금리).html">예금금리</a></li>
+                  </ul>
+                </li>						
+                <li><a href="https://finance.naver.com/">External Link</a></li>
+              </ul>
+            </nav>
+
+            				<!-- Featured Posts -->
+				<div class="featured-posts">
+					<div class="heading">
+						<h2>캡스톤2022_궁금리</h2>
+					</div>
+				</div>
+
+            <!-- Footer -->
+
+            
+          </div>
+        </div>
+
+    </div>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/transition.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+
+
+  </body>
+
+</html>
